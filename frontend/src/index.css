@@ -1,0 +1,62 @@
+/* Reset CSS - Minimal & Modern */
+
+/* Box sizing border-box for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove default button styles */
+button, input, textarea, select {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Remove anchor text decoration */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset default body styles */
+body {
+  font-family: sans-serif, Arial, Helvetica;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Reset images & videos */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove table spacing */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Make elements responsive */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset headings */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  font-weight: normal;
+}
