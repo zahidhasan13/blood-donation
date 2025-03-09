@@ -39,14 +39,6 @@ const donarDetailsSchema = new Schema({
         trim: true,
         match: [/.+@.+\..+/, "Please enter a valid email address"],
     },
-    lastDonationDate:{
-        type: Date,
-        default: null,
-    },
-    availability:{
-        type: Boolean,
-        default: true,
-    },
 },
 {
     timestamps: true
