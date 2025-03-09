@@ -8,7 +8,7 @@ const Hero = () => {
         <p className="hero-subtitle">
           Your single donation can save up to three lives. Join us in making a difference today!
         </p>
-        <button className="hero-button">Donate Now</button>
+        <button className="hero-button">Become a Donor</button>
       </div>
     </section>
   );
