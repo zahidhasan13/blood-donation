@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // Get All Donar Data
 const getAllDonarDetails = async (req, res) => {
   try {
-    const donarDetails = await DonarDetail.find();
+    const donarDetails = await DonarDetail.find().sort({createdAt: -1});
     res.status(200).json(donarDetails);
   } catch (err) {
     res.status(400).json({ error: err.message });

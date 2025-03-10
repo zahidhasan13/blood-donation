@@ -1,8 +1,10 @@
-
+import useDonorListContext from '../hooks/useDonorListContext'
 import { useForm } from 'react-hook-form';
+import {useNavigate} from "react-router-dom"
 
 const BecomeDonorModal = ({setIsModalOpen}) => {
-  
+  const {dispatch} = useDonorListContext();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -10,11 +12,25 @@ const BecomeDonorModal = ({setIsModalOpen}) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log('Form Data:', data);
-    alert('Thank you for registering as a donor!');
-    setIsModalOpen(false);
-    reset();
+  const onSubmit = async (donor) => {
+    const res = await fetch("http://localhost:8400/api/bloodDonar",{
+      method: "POST",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(donor)
+    })
+    const data = await res.json();
+
+    if(!res.ok){
+      alert(data.error);
+    }
+    if(res.ok){
+      dispatch({typr: "POST_DONOR", payload: data})
+      setIsModalOpen(false);
+      reset();
+      navigate("/donorList")
+    }
   };
 
   return (
@@ -68,9 +84,9 @@ const BecomeDonorModal = ({setIsModalOpen}) => {
                   <label htmlFor="gender">Gender</label>
                   <select id="gender" {...register('gender', { required: 'Gender is required' })}>
                     <option value="">Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
                   </select>
                   {errors.gender && <span className="error">{errors.gender.message}</span>}
                 </div>

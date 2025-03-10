@@ -11,6 +11,11 @@ const donorsReducer = (state, action) => {
                 ...state,
                 donors: action.payload,
             };
+            case 'POST_DONOR':
+                return{
+                    ...state,
+                    donors: [action.payload, ...state.donors],
+                }
         default:
             return state;
     }
