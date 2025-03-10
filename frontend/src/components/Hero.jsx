@@ -1,6 +1,7 @@
-import React from 'react';
 
-const Hero = () => {
+
+const Hero = ({isModalOpen, setIsModalOpen}) => {
+  
   return (
     <section className="hero">
       <div className="hero-content">
@@ -8,8 +9,9 @@ const Hero = () => {
         <p className="hero-subtitle">
           Your single donation can save up to three lives. Join us in making a difference today!
         </p>
-        <button className="hero-button">Become a Donor</button>
+        <button onClick={()=> setIsModalOpen(!isModalOpen)} className="hero-button">Become a Donor</button>
       </div>
+   
     </section>
   );
 };

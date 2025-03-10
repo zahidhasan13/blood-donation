@@ -79,6 +79,34 @@ const updateDonarDetail = async (req, res) => {
   res.status(200).json(donarDetail);
 };
 
+// Filter Donor
+// const getFilterDonor = async (req, res) => {
+//   try {
+//     const { bloodGroup, location, availability } = req.query;
+
+//     console.log('Received filters:', { bloodGroup, location, availability }); // Debugging
+
+//     // Build filter object based on provided query parameters
+//     const filter = {};
+//     if (bloodGroup) filter.bloodGroup = bloodGroup;
+//     if (location) filter.location = { $regex: location, $options: 'i' }; // Case-insensitive search
+//     if (availability) filter.availability = availability;
+
+//     console.log('MongoDB filter:', filter); // Debugging
+
+//     // Fetch filtered donors from the database
+//     const donors = await Donor.find(filter);
+
+//     console.log('Filtered donors:', donors); // Debugging
+
+//     // Return the filtered donors
+//     res.status(200).json(donors);
+//   } catch (err) {
+//     console.error('Error filtering donors:', err);
+//     res.status(500).json({ message: 'Server error' });
+//   }
+// };
+
 module.exports = {
   getAllDonarDetails,
   getSingleDonarDetails,
